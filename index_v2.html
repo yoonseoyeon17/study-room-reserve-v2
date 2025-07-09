@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자습실 예약 시스템 (V2.0)</title>
+    <link rel="stylesheet" href="style_v2.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>✨ 자습실 예약 시스템 (V2.0) ✨</h1>
+        <p>아래 좌석 배치도를 확인 후, 예약 및 추천 기능을 사용해보세요.</p>
+
+        <!-- 좌석 배치도 이미지를 보여줍니다. (seat_layout.jpg 파일이 필요합니다) -->
+        <img src="seat_layout.jpg" alt="자습실 좌석 배치도" class="seat-map">
+
+        <!-- Seat Recommendation Section -->
+        <div class="recommendation-form">
+            <h3>✨ 나에게 맞는 좌석 추천받기 ✨</h3>
+            <p>선호하는 좌석 조건을 선택해주세요:</p>
+            <div class="preferences">
+                <label><input type="checkbox" id="pref-ac"> 에어컨 근처 선호</label><br>
+                <label><input type="checkbox" id="pref-wall"> 벽 쪽 좌석 선호</label><br>
+                <label><input type="checkbox" id="pref-quiet"> 조용한 자리 선호</label>
+            </div>
+            <button onclick="recommendSeats()">좌석 추천받기</button>
+            <div id="recommendation-results" class="results-box"></div>
+        </div>
+
+        <!-- Reservation Section -->
+        <div class="reservation-form">
+            <h3>📚 좌석 예약하기 📚</h3>
+            <input type="number" id="reserve-seat-number" placeholder="예약할 좌석 번호 (1-40)">
+            <input type="text" id="reserve-student-id" placeholder="학번 (예: 1234)">
+            <input type="text" id="reserve-student-name" placeholder="이름 (예: 윤서연)">
+            <button onclick="makeReservation()">예약하기</button>
+            <div id="reservation-results" class="results-box"></div>
+        </div>
+
+        <!-- Cancellation Section -->
+        <div class="cancellation-form">
+            <h3>❌ 예약 취소하기 ❌</h3>
+            <input type="number" id="cancel-seat-number" placeholder="취소할 좌석 번호">
+            <input type="text" id="cancel-student-id" placeholder="학번">
+            <button onclick="cancelReservation()">예약 취소하기</button>
+            <div id="cancellation-results" class="results-box"></div>
+        </div>
+
+        <!-- Current Reservations (for demonstration) -->
+        <div class="current-reservations">
+            <h3>현재 예약 현황 (⚠️ 새로고침 시 초기화)</h3>
+            <ul id="reserved-list"></ul>
+        </div>
+    </div>
+
+    <script src="script_v2.js"></script>
+</body>
+</html>
